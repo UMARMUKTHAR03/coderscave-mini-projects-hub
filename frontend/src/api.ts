@@ -114,3 +114,4 @@ function syncLocalSession(session: TypingSession) {
     console.error('Failed to sync to localStorage', e);
   }
 }
+

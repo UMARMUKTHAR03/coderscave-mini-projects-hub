@@ -157,3 +157,4 @@ describe('Password Generator Constraints', () => {
     expect(() => generateCryptoPassword(2, { lowercase: true, uppercase: true, numbers: true, symbols: true })).toThrow('Invalid length');
   });
 });
+

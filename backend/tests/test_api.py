@@ -22,6 +22,13 @@ def client():
     with TestClient(app) as test_client:
         yield test_client
 
+def test_root_endpoint(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "online"
+    assert "version" in data
+
 def test_health_check(client):
     response = client.get("/health")
     assert response.status_code == 200
@@ -103,4 +110,3 @@ def test_typing_session_validation_error(client):
     }
     invalid_res = client.post("/api/typing/sessions", json=invalid_payload)
     assert invalid_res.status_code == 422
-

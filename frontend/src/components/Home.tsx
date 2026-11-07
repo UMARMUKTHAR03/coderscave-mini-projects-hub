@@ -212,3 +212,4 @@ export const Home: React.FC<HomeProps> = ({ onSelectModule, apiConnected }) => {
     </div>
   );
 };
+

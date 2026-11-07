@@ -27,3 +27,4 @@ export interface HealthResponse {
 }
 
 export type ActiveModule = 'home' | 'voice' | 'typing' | 'password' | 'calculator';
+

@@ -54,6 +54,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {
+        "name": "CodersCave Mini Projects Hub API",
+        "status": "online",
+        "docs_url": "/docs",
+        "health_url": "/health",
+        "version": "1.0.0"
+    }
+
 @app.get("/health", response_model=HealthResponse)
 def health_check():
     return {
@@ -101,4 +111,3 @@ def get_stats():
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to calculate typing statistics: {str(e)}",
         )
-
