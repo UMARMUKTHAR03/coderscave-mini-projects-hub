@@ -119,7 +119,7 @@ Base URL: `http://127.0.0.1:8000` (Local) / Configured Render URL (Production)
 cd backend
 python -m pytest tests/ -v
 ```
-**Results:** `4 passed` (Health check, session creation, statistics aggregation, schema validation).
+**Results:** `5 passed` across root status, health check, typing session persistence, aggregate statistics calculation, and schema validation.
 
 ### Frontend Unit Tests (Vitest)
 ```bash
@@ -128,63 +128,31 @@ npm test
 ```
 **Results:** `10 passed` (Calculator precedence, negative numbers, divide by zero, typing metrics, password entropy rules).
 
----
-
-## 💻 Local Setup & Development
-
-### Prerequisites
-- Python 3.10+
-- Node.js 18+ and npm
-
-### 1. Clone the repository
+### Production Build
 ```bash
-git clone https://github.com/UMARMUKTHAR03/coderscave-mini-projects-hub.git
-cd coderscave-mini-projects-hub
+cd frontend
+npm run build
 ```
-
-### 2. Backend Setup
-```bash
-cd backend
-python -m venv .venv
-
-# On Windows
-.venv\Scripts\Activate.ps1
-# On Linux/macOS
-source .venv/bin/activate
-
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-```
-API Documentation will be available at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
-
-### 3. Frontend Setup
-```bash
-cd ../frontend
-npm install
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+**Results:** Successfully compiles clean production bundle with zero TypeScript warnings or errors.
 
 ---
 
-## 🚢 Deployment Guide
+## 🚢 Deployment Architecture & Details
 
 ### Frontend Deployment (GitHub Pages)
-1. Build the production bundle:
-   ```bash
-   cd frontend
-   npm run build
-   ```
-2. The output in `frontend/dist/` contains standalone HTML, CSS, and JS assets with relative subpath routing (`base: './'`).
-3. Deploy `dist/` to the `gh-pages` branch.
+- **Live URL:** [https://umarmukthar03.github.io/coderscave-mini-projects-hub/](https://umarmukthar03.github.io/coderscave-mini-projects-hub/)
+- **Workflow:** Deployed automatically on every push to `main` via `.github/workflows/ci.yml`.
+- **Packaging:** Standalone SPA built with relative base paths (`./`) and an included `public/404.html` fallback to ensure deep routes and browser refresh work reliably without client routing breakage.
 
-### Backend Deployment (Render Free Plan)
-1. The repository includes a preconfigured `render.yaml` blueprint.
-2. In the Render Dashboard, create a new Web Service pointing to the repository.
-3. Configure environment variables:
-   - `ENVIRONMENT`: `production`
-   - `ALLOWED_ORIGINS`: `https://umarmukthar03.github.io`
-   - `DATA_DIR`: `/opt/render/project/src/data`
+### Backend Deployment (Render Free Web Service)
+- **Target URL:** [https://coderscave-mini-projects-hub-api.onrender.com](https://coderscave-mini-projects-hub-api.onrender.com)
+- **Specification:** Preconfigured via `render.yaml` Blueprint using Python 3.11.9, ASGI uvicorn runner, and production CORS restricted to the deployed GitHub Pages origin.
+
+> **Important Storage & Persistence Disclosure (Render Free Plan):**
+> - The backend utilizes SQLite located under `DATA_DIR` (`/opt/render/project/src/data/coderscave_hub.db`).
+> - Render Free instances do not include persistent disks and operate on an ephemeral filesystem.
+> - As a result, server-side SQLite typing test records and history will reset when the instance restarts, redeploys, or sleeps after inactivity.
+> - **Client-Side Resilience:** The frontend includes an automatic `localStorage` fallback layer (`LOCAL_STORAGE_SESSIONS_KEY`), ensuring all typing scores and statistics remain accessible and functional even during cold starts or service reboots.
 
 ---
 
