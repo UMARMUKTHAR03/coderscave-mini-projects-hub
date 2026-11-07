@@ -1,13 +1,34 @@
 # CodersCave Mini Projects Hub
 
-[![CI / CD Pipeline](https://github.com/UMARMUKTHAR03/coderscave-mini-projects-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/UMARMUKTHAR03/coderscave-mini-projects-hub/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![React](https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+A modern full-stack web application combining four Python mini-projects into one interactive platform.
 
-**CodersCave Mini Projects Hub** is a unified, responsive full-stack web platform combining four independent Python internship mini-projects into modern, interactive web modules.
+[🚀 LIVE DEMO — OPEN CODERSCAVE MINI PROJECTS HUB](https://umarmukthar03.github.io/coderscave-mini-projects-hub/)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=for-the-badge&logo=github&logoColor=white)](https://umarmukthar03.github.io/coderscave-mini-projects-hub/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/UMARMUKTHAR03/coderscave-mini-projects-hub)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+
+---
+
+## 📸 Application Screenshots
+
+### Dashboard
+![CodersCave Mini Projects Hub Dashboard](docs/screenshots/dashboard.png)
+
+### Voice Recorder
+![Voice Recorder with Waveform Visualizer](docs/screenshots/voice-recorder.png)
+
+### Typing Speed Tester
+![Typing Speed Tester with Live WPM and Error Highlight](docs/screenshots/typing-speed-tester.png)
+
+### Random Password Generator
+![Random Password Generator with Web Crypto API and Strength Meter](docs/screenshots/password-generator.png)
+
+### Calculator
+![Calculator with Safe Arithmetic Parser](docs/screenshots/calculator.png)
 
 ---
 
